@@ -4,7 +4,7 @@
 
 > A react higher order component that checks interaction on the browser.
 
-This component checks whether the browser is hoverable, i.e. non-touch screen device, or hoverable, i.e. touch-screen device. Besides that it also checks for screen resize, and scroll browser events.
+This component checks whether the browser is hoverable, i.e. non-touch screen device, or non-hoverable, i.e. touch-screen device. Besides that it also checks for screen resize, and scroll browser events.
 
 ## Install
 
