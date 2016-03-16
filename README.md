@@ -1,6 +1,6 @@
 # react-browser-interaction
 
-# ![demo](demo.gif)
+![demo](https://raw.githubusercontent.com/cusxio/react-browser-interaction/master/demo.gif)
 
 > A react higher order component that checks interaction on the browser.
 
