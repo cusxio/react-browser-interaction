@@ -14,7 +14,7 @@ $ npm install --save react-browser-interaction
 
 ## Notes
 
-This component requires an instace of [Modernizr](https://modernizr.com/).
+This component requires an instance of [Modernizr](https://modernizr.com/).
 
 You can either use [modernizr-loader](https://www.npmjs.com/package/modernizr-loader) for Webpack or [browsernizr](https://www.npmjs.com/package/browsernizr) for Browserify.
 
