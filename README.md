@@ -12,12 +12,20 @@ This component checks whether the browser is hoverable, i.e. non-touch screen de
 $ npm install --save react-browser-interaction
 ```
 
+## Notes
+
+This component requires an instace of [Modernizr](https://modernizr.com/).
+
+You can either use [modernizr-loader](https://www.npmjs.com/package/modernizr-loader) for Webpack or [browsernizr](https://www.npmjs.com/package/browsernizr) for Browserify.
+
+There's an [example](https://github.com/cusxio/react-browser-interaction/tree/master/example) provided for Webpack.
+
 ## Usage
 
 ```javascript
 
 // container.js
-
+import Modernizr from 'modernizr';
 import React, { Component } from 'react';
 import browserInteractionHOC from 'react-browser-interaction';
 
@@ -29,7 +37,7 @@ class Container extends Component {
     }
 }
 
-export default browserInteractionHOC(Container, 1200, 'hoverable', 'scrolled');
+export default browserInteractionHOC(Modernizr, Container, 1200, 'hoverable', 'scrolled');
 
 // app.js
 
@@ -43,7 +51,13 @@ render(<Container />, document.getElementById('app'));
 
 ## API
 
-### browserInteractionHOC(component, screenWidth, hoverClass, scrollClass)
+### browserInteractionHOC(modernizrInstance, component, screenWidth, hoverClass, scrollClass)
+
+#### modernizrInstance
+
+Type: `function`
+
+An instance of the modernizr package.
 
 #### component
 
