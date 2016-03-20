@@ -1,11 +1,9 @@
-import Modernizr from 'modernizr';
 import debounce from 'lodash/debounce';
 import throttle from 'lodash/throttle';
-
 import React, { Component } from 'react';
 import ViewportMetrics from 'react/lib/ViewportMetrics';
 
-let browserInteractionHOC = (ComposedComponent, screenSize, hoverClass, scrollClass) => class extends Component {
+let browserInteractionHOC = (modernizrInstance, ComposedComponent, screenSize, hoverClass, scrollClass) => class extends Component {
     constructor(props) {
         super(props);
         this._onResize = this._onResize.bind(this);
@@ -16,13 +14,13 @@ let browserInteractionHOC = (ComposedComponent, screenSize, hoverClass, scrollCl
         };
     }
     _hoverThrottle() {
-        debounce(function() {
+        debounce(function () {
             document.body.classList.add(hoverClass);
         }, 100)();
     }
     _scrollThrottle() {
-        throttle(function() {
-            document.body.scrollTop > .15 * window.innerHeight ? document.body.classList.add(scrollClass) : document.body.classList.remove(scrollClass);
+        throttle(function () {
+            document.body.scrollTop > 0.15 * window.innerHeight ? document.body.classList.add(scrollClass) : document.body.classList.remove(scrollClass);
             if (ViewportMetrics.currentScrollTop === this.state.scrollTop) {
                 this.setState({
                     isScrolling: false,
@@ -32,7 +30,7 @@ let browserInteractionHOC = (ComposedComponent, screenSize, hoverClass, scrollCl
     }
     _resizeThrottle() {
         let currentScreenSize = window.innerWidth < screenSize;
-        throttle(function() {
+        throttle(function () {
             window.innerWidth < screenSize && !currentScreenSize ? currentScreenSize = !0 : window.innerWidth > screenSize - 1 && currentScreenSize && (currentScreenSize = !1);
         }, 100).bind(this)();
     }
@@ -57,7 +55,7 @@ let browserInteractionHOC = (ComposedComponent, screenSize, hoverClass, scrollCl
         this._resizeThrottle();
     }
     componentDidMount() {
-        let touchEvent = Modernizr.touchevents;
+        let touchEvent = modernizrInstance.touchevents;
         touchEvent || this._scrollActions();
         this._resizeActions();
     }
@@ -66,7 +64,7 @@ let browserInteractionHOC = (ComposedComponent, screenSize, hoverClass, scrollCl
         window.removeEventListener('resize', this._onResize);
     }
     render() {
-        return  <ComposedComponent data={this.state} />;
+        return <ComposedComponent data={this.state}/>;
     }
 };
 
