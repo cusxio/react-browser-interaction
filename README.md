@@ -4,6 +4,8 @@
 
 > A react higher order component that checks interaction on the browser.
 
+[![Build Status](https://semaphoreci.com/api/v1/cusxio/react-browser-interaction/branches/master/badge.svg)](https://semaphoreci.com/cusxio/react-browser-interaction)
+
 This component checks whether the browser is hoverable, i.e. non-touch screen device, or non-hoverable, i.e. touch-screen device. Besides that it also checks for screen resize, and scroll browser events.
 
 ## Install
