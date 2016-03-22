@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import browserInteractionHOC from '../lib/index';
+import Modernizr from 'modernizr';
 
 class Container extends Component {
     constructor(props) {
@@ -14,17 +15,16 @@ class Container extends Component {
         console.log(`Am I Scrolling? ${isScrolling}`);
         this.setState({
             scrollTop,
-            isScrolling,
         });
     }
     render() {
-        let { scrollTop, isScrolling } = this.state;
+        let { scrollTop } = this.state;
         return (
             <div>
-                <h1>scrollTop: { scrollTop }</h1>
+                <h1>scrollTop: {scrollTop}</h1>
             </div>
-        )
+        );
     }
 }
 
-export default browserInteractionHOC(Container, 1200, 'hoverable', 'scrolled');
+export default browserInteractionHOC(Modernizr, Container, 1200, 'hoverable', 'scrolled');
