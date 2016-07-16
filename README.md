@@ -27,7 +27,6 @@ There's an [example](https://github.com/cusxio/react-browser-interaction/tree/ma
 ```javascript
 
 // container.js
-import Modernizr from 'modernizr';
 import React, { Component } from 'react';
 import browserInteractionHOC from 'react-browser-interaction';
 
@@ -39,7 +38,7 @@ class Container extends Component {
     }
 }
 
-export default browserInteractionHOC(Modernizr, Container, 1200, 'hoverable', 'scrolled');
+export default browserInteractionHOC(Container, 1200, 'hoverable', 'scrolled');
 
 // app.js
 
@@ -53,13 +52,7 @@ render(<Container />, document.getElementById('app'));
 
 ## API
 
-### browserInteractionHOC(modernizrInstance, component, screenWidth, hoverClass, scrollClass)
-
-#### modernizrInstance
-
-Type: `function`
-
-An instance of the modernizr package.
+### browserInteractionHOC(Component, screenWidth, hoverClass, scrollClass)
 
 #### component
 
