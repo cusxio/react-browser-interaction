@@ -1,9 +1,11 @@
 body {
     height: 600vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #333;
 }
 
 h1, p {
     position: fixed;
     top: 200px;
-    left: 200px;
+    left: 20px;
 }
